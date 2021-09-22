@@ -3,16 +3,18 @@ title: "Simple document"
 output: html_document
 ---
 
-I'm an R Markdown document! 
-
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
+# Question 1 
 
 ```{r}
-samp = rnorm(100)
-length(samp)
+library(tidyverse)
+
+df = tibble(
+  samp = rnorm(10),
+  samp_logical = samp > 0,
+  samp_character = nchar(samp),
+  samp_levels = as.numeric(as.factor(samp_character))
+)
+
 ```
 
 # Section 2
