@@ -1,9 +1,12 @@
 ---
-title: "Simple document"
+title: "p8105_hw1_yz4181"
+author: Yuanyuan Zeng
 output: html_document
 ---
 
 # Question 1 
+
+### Create a dataframe
 
 ```{r}
 library(tidyverse)
@@ -14,10 +17,25 @@ df = tibble(
   samp_character = nchar(samp),
   samp_levels = as.numeric(as.factor(samp_character))
 )
+```
 
+### Calculate the mean of each variable in dataframe
+```{r}
+#calculate the mean of random size of 10
+x = pull(df, var = 1)
+mean(x)
+
+#calculate the mean of logical vector
+logical_vector = pull(df, var = 2)
+mean(logical_vector)
+
+#calculate the mean of character vector
+character_vector = pull(df, var = 3)
+mean(character_vector)
+
+#calculate the mean of factor vector
+factor_vector = pull(df, var = -1)
+mean(factor_vector)
 ```
 
 # Section 2
-
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
