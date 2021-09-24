@@ -10,6 +10,10 @@ output: html_document
 
 ```{r}
 library(tidyverse)
+```
+
+```{r}
+set.seed(1)
 
 df = tibble(
   samp = rnorm(10),
@@ -22,8 +26,7 @@ df = tibble(
 ### Calculate the mean of each variable in dataframe
 ```{r}
 #calculate the mean of random size of 10
-x = pull(df, var = 1)
-mean(x)
+mean(pull(df, samp))
 
 #calculate the mean of logical vector
 logical_vector = pull(df, var = 2)
@@ -38,4 +41,19 @@ factor_vector = pull(df, var = -1)
 mean(factor_vector)
 ```
 
-# Section 2
+# Problem 2
+```{r}
+data("penguins", package = "palmerpenguins")
+skimr::skim(penguins)
+mean(penguins$flipper_length_mm)
+```
+
+Description of dataset:
+The dataset includes 344 rows and 8 columns. There are 2 factor vectors and 5 numeric vectors. The variables in the dataset are species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. There are many missing value in column of sex, bill_length_mm, bill_depth_mm, flipper_length_mm, and  body_mass_g. 
+
+###scatter plot
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) +
+  geom_point(aes(color = species))
+```
+
