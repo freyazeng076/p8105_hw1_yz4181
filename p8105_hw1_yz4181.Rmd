@@ -4,9 +4,9 @@ author: Yuanyuan Zeng
 output: html_document
 ---
 
-# Question 1 
+## Problem 1 
 
-### Create a dataframe
+#### Create a dataframe
 
 ```{r}
 library(tidyverse)
@@ -18,42 +18,59 @@ set.seed(1)
 df = tibble(
   samp = rnorm(10),
   samp_logical = samp > 0,
-  samp_character = nchar(samp),
-  samp_levels = as.numeric(as.factor(samp_character))
+  samp_character = c("Monday", "Tusday", "January", "October", "Saturday", "June", "Friday", "April", "March", "Sunday" ),
+  samp_levels = factor(c("Fair", "Good", "Good", "Fair", "Excellent", "Fair", "Good", "Excellent", "Fair", "Excellent"))
 )
 ```
 
-### Calculate the mean of each variable in dataframe
+#### Calculate the mean of each variable in dataframe
 ```{r}
 #calculate the mean of random size of 10
-mean(pull(df, samp))
+mean(pull(df, var = 1))
 
 #calculate the mean of logical vector
-logical_vector = pull(df, var = 2)
-mean(logical_vector)
+mean(pull(df, var = 2))
 
 #calculate the mean of character vector
-character_vector = pull(df, var = 3)
-mean(character_vector)
+mean(pull(df, var = 3))
 
 #calculate the mean of factor vector
-factor_vector = pull(df, var = -1)
-mean(factor_vector)
+mean(pull(df, var = -1))
+```
+The means of numeric vector and logical vector can be calculated. But the means of character vector and factor vector cannot be calculated.
+
+#### Convert the variables from one to another
+```{r}
+
 ```
 
-# Problem 2
+
+
+
+
+## Problem 2
+
 ```{r}
+# import the data set
 data("penguins", package = "palmerpenguins")
+
+# look at the data set
 skimr::skim(penguins)
+
+# Calculate mean flipper length
 mean(penguins$flipper_length_mm)
 ```
 
-Description of dataset:
-The dataset includes 344 rows and 8 columns. There are 2 factor vectors and 5 numeric vectors. The variables in the dataset are species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. There are many missing value in column of sex, bill_length_mm, bill_depth_mm, flipper_length_mm, and  body_mass_g. 
+Description of data set:
+The data set includes 344 rows and 8 columns. There are 2 factor vectors and 5 numeric vectors. The variables in the data set are species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. Some values are missing in column of sex, bill_length_mm, bill_depth_mm, flipper_length_mm, and  body_mass_g. 
 
-###scatter plot
+
 ```{r}
+# make a scatterplot
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) +
   geom_point(aes(color = species))
+
+# save the plot
+ggsave("penguins.pdf")
 ```
 
