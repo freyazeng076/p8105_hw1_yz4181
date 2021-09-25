@@ -1,7 +1,6 @@
 ---
 title: "p8105_hw1_yz4181"
 author: Yuanyuan Zeng
-output: html_document
 ---
 
 ## Problem 1 
