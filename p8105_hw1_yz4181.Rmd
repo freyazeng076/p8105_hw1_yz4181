@@ -45,19 +45,16 @@ mean(pull(df, var = -1))
 
 #### Convert the variables from one to another
 ```{r, eval=FALSE}
-#convert the logical vector into numeric vector and calculate mean
+#convert the logical vector into numeric vector 
 logical_numeric = as.numeric(logical_vector)
-mean(logical_numeric)
 
-#convert the character vector into numeric vector and calculate mean
+#convert the character vector into numeric vector 
 character_numeric = as.numeric(character_vector)
-mean(character_numeric)
 
-#convert the factor vector into numeric vector and calculate mean
+#convert the factor vector into numeric vector 
 factor_numeric = as.numeric(factor_vector)
-mean(factor_numeric)
 ```
-* The logical vector and factor vector can be converted into numeric vectors. For logical vector, TRUE is converted into 1 and False is converted into 0. For factor vector, three different levels of factor are assigned as 1, 2, and 3. After converting, the mean of both vector can be calculated. We can calculate the mean of logical vector without converting into numeric vector since TRUE is considered as 1 and FALSE is considered as 0 automatically. 
+* The logical vector and factor vector can be converted into numeric vectors. For logical vector, TRUE is converted into 1 and False is converted into 0. For factor vector, three different levels of factor are assigned as 1, 2, and 3. After converting, the mean of both vector can be calculated. We can calculate the mean of logical vector even without converting into numeric vector since TRUE is considered as 1 and FALSE is considered as 0 automatically. 
 
 * Character vector cannot be converted into numeric vector, which explain why we cannot take the mean of character vector.
 
@@ -71,11 +68,16 @@ data("penguins", package = "palmerpenguins")
 # look at the data set
 skimr::skim(penguins)
 
+# look at the size of data set
+nrow(penguins)
+ncol(penguins)
+
 # Calculate mean flipper length
 mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
 
 Description of data set:
+
 * The data set includes 344 rows and 8 columns. There are 2 factor vectors and 5 numeric vectors. 
 
 * The variables in the data set are:species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. 
