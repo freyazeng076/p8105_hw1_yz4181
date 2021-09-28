@@ -21,6 +21,8 @@ df = tibble(
   samp_character = c("Monday", "Tusday", "January", "October", "Saturday", "June", "Friday", "April", "March", "Sunday" ),
   samp_levels = factor(c("Fair", "Good", "Good", "Fair", "Excellent", "Fair", "Good", "Excellent", "Fair", "Excellent"))
 )
+
+df
 ```
 
 
