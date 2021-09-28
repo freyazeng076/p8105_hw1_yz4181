@@ -1,6 +1,7 @@
 ---
 title: "p8105_hw1_yz4181"
 author: Yuanyuan Zeng
+output: github_document
 ---
 
 ## Problem 1 
